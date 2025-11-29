@@ -1,0 +1,11 @@
+Mongo DB - It a no sql database, stores data in JSON like format (BSON)
+It has db -
+db -> collections (as Table in sql)
+collections -> Documents ( {key:value} ) - like row in sql
+
+Flexible, no-fixed schema .
+
+
+show dbs
+use mydb
+show collections

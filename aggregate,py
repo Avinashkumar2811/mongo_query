@@ -1,0 +1,36 @@
+// 📌 AGGREGATION QUERIES
+// 20. Count documents
+db.students.countDocuments()
+
+// 21. Group by city
+db.students.aggregate(  [
+  { $group: { _id: "$city", total: { $sum: 1 } } }
+]   )
+
+// 22. Find max age
+db.students.aggregate([
+  { $group: { _id: null, maxAge: { $max: "$age" } } }
+])
+
+// 23. Sorting with aggregation
+db.students.aggregate([
+  { $sort: { age: -1 } }
+])
+
+// 📌 INDEX QUERIES
+// 24. Create index
+db.students.createIndex({ name: 1 })
+
+// 25. Show all indexes
+db.students.getIndexes()
+
+// ⭐ Bonus (Important)
+// 26. Text search
+db.students.createIndex({ name: "text" })
+db.students.find({ $text: { $search: "Avinash" } })
+
+// 27. Find by ObjectId
+ObjectId("656fd3e08891f31234567890")
+
+// 28. Rename field
+db.students.updateMany({}, { $rename: { "city": "location" } })
